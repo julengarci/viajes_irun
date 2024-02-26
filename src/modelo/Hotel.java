@@ -1,4 +1,4 @@
-package v1_0;
+package modelo;
 
 public class Hotel {
 
