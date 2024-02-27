@@ -5,7 +5,7 @@ public class Hotel {
 	private String cif;
 	private String nombre;
 	private String gerente;
-	private int entrella;
+	private int estrella;
 	private String compania;
 	Habitacion habitacion;
 	public int getId() {
@@ -33,10 +33,10 @@ public class Hotel {
 		this.gerente = gerente;
 	}
 	public int getEntrella() {
-		return entrella;
+		return estrella;
 	}
 	public void setEntrella(int entrella) {
-		this.entrella = entrella;
+		this.estrella = entrella;
 	}
 	public String getCompania() {
 		return compania;
@@ -53,7 +53,7 @@ public class Hotel {
 	@Override
 	public String toString() {
 		return "Hotel [id=" + id + ", cif=" + cif + ", nombre=" + nombre + ", gerente=" + gerente + ", entrella="
-				+ entrella + ", compania=" + compania + ", habitacion=" + habitacion + "]";
+				+ estrella + ", compania=" + compania + ", habitacion=" + habitacion + "]";
 	}
 	
 }

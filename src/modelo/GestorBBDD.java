@@ -150,9 +150,12 @@ public class GestorBBDD {
 	        while(rst.next()) {
 	            Reserva reserva = new Reserva();
 	            reserva.setId(rst.getInt("id"));
-	            reserva.setHabitacion(getHabitacionID(rst.getInt("id_hotel ")));
+	            reserva.setHabitacion(getHabitacionID(rst.getInt("id_habitacion")));
+	            reserva.setDesde(rst.getDate("desde"));
+	            reserva.setHasta(rst.getDate("hasta"));
+	            reservas.add(reserva);
 	        }
-	        Visor.mostrarClientes(clientes);
+	        Visor.mostrarReservas(reservas);
 	        Conector.CERRAR();
 		} catch (SQLException e) {
 			System.out.println(e);
@@ -195,7 +198,7 @@ public class GestorBBDD {
 	            hotel.setGerente(rst.getString("gerente"));
 	            hotel.setEntrella(rst.getInt("entrella"));
 	            hotel.setCompania(rst.getString("compania"));
-	            hotel.setHabitacion(null);
+	            hotel.setHabitacion(getHabitacionID(cif));
 			}
 	        Conector.CERRAR();
 	        return hotel;
