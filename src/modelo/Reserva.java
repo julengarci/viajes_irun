@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Reserva {
 	private int id;
 	private Habitacion habitacion;
-	private Cliente cliente;
+	private Hotel hotel;
 	private Date desde;
 	private Date hasta;
 	
@@ -21,11 +21,12 @@ public class Reserva {
 	public void setHabitacion(Habitacion habitacion) {
 		this.habitacion = habitacion;
 	}
-	public Cliente getCliente() {
-		return cliente;
+
+	public Hotel getHotel() {
+		return hotel;
 	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 	public Date getDesde() {
 		return desde;
@@ -41,7 +42,7 @@ public class Reserva {
 	}
 	@Override
 	public String toString() {
-		return "Reserva [id=" + id + ", habitacion=" + habitacion + ", cliente=" + cliente + ", desde=" + desde
+		return "Reserva [id=" + id + ", habitacion=" + habitacion + ", Hotel=" + hotel.getCif() + ", desde=" + desde
 				+ ", hasta=" + hasta + "]";
 	}
 	

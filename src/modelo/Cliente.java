@@ -5,15 +5,8 @@ public class Cliente {
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	
-	public Reserva getReserva() {
-		return reserva;
-	}
-	public void setReserva(Reserva reserva) {
-		this.reserva = reserva;
-	}
 	private String localidad;
-	Reserva reserva;
+
 	public String getDni() {
 		return dni;
 	}
@@ -48,7 +41,7 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "Cliente [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion
-				+ ", localidad=" + localidad + ", reserva=" + reserva + "]";
+				+ ", localidad=" + localidad + "]";
 	}
 
 	
