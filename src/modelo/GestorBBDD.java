@@ -207,4 +207,28 @@ public class GestorBBDD {
 		}
 		return null;
 	}
+
+	public static void darAltaReserva(Scanner scan) {
+		try {
+			Reserva reserva = new Reserva();
+			int id_habitacion = Formulario.pedirIdHabitacion(scan);
+			String dni = Formulario.pedriDNI(scan);
+			reserva.setCliente(getClienteByDni(dni));
+			reserva.setHabitacion(getHabitacionID(id_habitacion));
+			reserva.setDesde(Formulario.pedirFechaDesde(scan));
+			reserva.setHasta(Formulario.pedirFechaHasta(scan));
+			String sql = "INSERT INTO reservas (id_habitacion, dni, desde, hasta) VALUES (?,?,?,?)";
+			Connection con = Conector.conectar();
+			PreparedStatement prst = con.prepareStatement(sql);
+			prst.setInt(1, reserva.getHabitacion().getId());
+			prst.setString(2, reserva.getCliente().getDni());
+			prst.setDate(3, reserva.getDesde());
+			prst.setDate(4, reserva.getHasta());
+			prst.executeUpdate();
+			prst.close();
+			System.out.println("Reserva " + reserva + "\t realizada");
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+	}
 }

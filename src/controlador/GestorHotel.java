@@ -39,8 +39,7 @@ public class GestorHotel {
     }
 
 	private static void darAltaReserva(Scanner scan) {
-		// TODO Auto-generated method stub
-		
+		GestorBBDD.darAltaReserva(scan);
 	}
 
 	private static void verReservas(Scanner scan) {

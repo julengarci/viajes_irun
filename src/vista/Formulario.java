@@ -1,5 +1,6 @@
 package vista;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -39,6 +40,24 @@ public class Formulario {
 		System.out.println("Introduzca el DNI del cliente");
 		String dni =  scan.nextLine();
 		return dni;
+	}
+
+	public static int pedirIdHabitacion(Scanner scan) {
+		System.out.println("Introduzca el Id de la Hbaitacion");
+		int id =  Integer.parseInt(scan.nextLine());
+		return id;
+	}
+
+	public static Date pedirFechaDesde(Scanner scan) {
+		System.out.println("Introduzca la fecha de entrada de la Reserva");
+		Date fecha = Date.valueOf(scan.nextLine());
+		return fecha;
+	}
+
+	public static Date pedirFechaHasta(Scanner scan) {
+		System.out.println("Introduzca la fecha de salida de la Reserva");
+		Date fecha = Date.valueOf(scan.nextLine());
+		return fecha;
 	}
 
 
