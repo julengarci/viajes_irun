@@ -153,6 +153,7 @@ public class GestorBBDD {
 	            reserva.setHabitacion(getHabitacionID(rst.getInt("id_habitacion")));
 	            reserva.setDesde(rst.getDate("desde"));
 	            reserva.setHasta(rst.getDate("hasta"));
+	            reserva.setCliente(getClienteByDni(rst.getString("dni")));
 	            reservas.add(reserva);
 	        }
 	        Visor.mostrarReservas(reservas);
