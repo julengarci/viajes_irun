@@ -121,7 +121,7 @@ public class GestorBBDD {
 	private static Cliente getClienteByDni(String dni) {
 		Cliente cliente = new Cliente();
 		try {
-	        String sql = "SELECT * FROM clientes WHERE clientes.dni = " + dni;
+	        String sql = "SELECT * FROM clientes WHERE clientes.dni = '" + dni + "'" ;
 	        Connection conexion = Conector.conectar();
 	        Statement st = conexion.createStatement();
 	        ResultSet rst = st.executeQuery(sql);
@@ -166,7 +166,7 @@ public class GestorBBDD {
 	private static Habitacion getHabitacionID(int id_habitacion) {
 		Habitacion habitacion = new Habitacion();
 		try {
-	        String sql = "SELECT * FROM reservas WHERE reservas.id = " + id_habitacion;
+	        String sql = "SELECT * FROM habitaciones WHERE habitaciones.id = " + id_habitacion;
 	        Connection conexion = Conector.conectar();
 	        Statement st = conexion.createStatement();
 	        ResultSet rst = st.executeQuery(sql);
@@ -175,7 +175,7 @@ public class GestorBBDD {
 	            habitacion.setNumero(rst.getInt("numero"));
 	            habitacion.setDescripcion(rst.getString("descripcion"));
 	            habitacion.setPrecio(rst.getInt("precio"));
-	            habitacion.setHotel(getHotelById(rst.getInt("cif")));
+	            habitacion.setHotel(getHotelById(rst.getInt("id_hotel")));
 			}
 	        Conector.CERRAR();
 	        return habitacion;
@@ -185,10 +185,10 @@ public class GestorBBDD {
 		return null;
 	}
 
-	private static Hotel getHotelById(int cif) {
+	private static Hotel getHotelById(int id) {
 		 Hotel hotel = new Hotel();
 		try {
-			 String sql = "SELECT * FROM hoteles WHERE hoteles.cif = ?";
+			 String sql = "SELECT * FROM hoteles WHERE hoteles.id = " + id;
 	        Connection conexion = Conector.conectar();
 	        Statement st = conexion.createStatement();
 	        ResultSet rst = st.executeQuery(sql);
@@ -197,9 +197,8 @@ public class GestorBBDD {
 	            hotel.setCif(rst.getString("cif"));
 	            hotel.setNombre(rst.getString("nombre"));
 	            hotel.setGerente(rst.getString("gerente"));
-	            hotel.setEntrella(rst.getInt("entrella"));
+	            hotel.setEntrella(rst.getInt("estrellas"));
 	            hotel.setCompania(rst.getString("compania"));
-	            hotel.setHabitacion(getHabitacionID(cif));
 			}
 	        Conector.CERRAR();
 	        return hotel;

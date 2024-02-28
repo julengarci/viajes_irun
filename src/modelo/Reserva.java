@@ -41,7 +41,7 @@ public class Reserva {
 	}
 	@Override
 	public String toString() {
-		return "Reserva [id=" + id + ", habitacion=" + habitacion + ", Hotel=" + habitacion.getHotel().getCompania() + ", desde=" + desde
+		return "Reserva [id=" + id + ", habitacion=" + habitacion.getNumero() + ", Hotel=" + habitacion.getHotel().getCompania() + ", desde=" + desde
 				+ ", hasta=" + hasta + "]";
 	}
 	

@@ -6,7 +6,6 @@ public class Habitacion {
 	private String descripcion;
 	private int precio;
 	private Hotel hotel;
-	Reserva reserva;
 	public int getId() {
 		return id;
 	}
@@ -37,16 +36,11 @@ public class Habitacion {
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	public Reserva getReserva() {
-		return reserva;
-	}
-	public void setReserva(Reserva reserva) {
-		this.reserva = reserva;
-	}
+
 	@Override
 	public String toString() {
 		return "Habitacion [id=" + id + ", numero=" + numero + ", descripcion=" + descripcion + ", precio=" + precio
-				+ ", hotel=" + hotel + ", reserva=" + reserva + "]";
+				+ ", hotel=" + hotel.getCif();
 	}
 	
 }

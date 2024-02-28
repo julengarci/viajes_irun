@@ -29,11 +29,19 @@ public class GestorHotel {
 			case Menu.VER_RESERVAS:
 				verReservas(scan);
 				break;
+			case Menu.DAR_DE_ALTA_RESERVA:
+				darAltaReserva(scan);
+				break;
 			default:
 				break;
 			}
 		} while (opcion!=Menu.SALIR);
     }
+
+	private static void darAltaReserva(Scanner scan) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	private static void verReservas(Scanner scan) {
 		GestorBBDD.verReservas(scan);
