@@ -1,6 +1,7 @@
 package modelo;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class Reserva {
 	private int id;
@@ -30,8 +31,8 @@ public class Reserva {
 	public Date getDesde() {
 		return desde;
 	}
-	public void setDesde(Date desde) {
-		this.desde = desde;
+	public void setDesde(Date date) {
+		this.desde = date;
 	}
 	public Date getHasta() {
 		return hasta;

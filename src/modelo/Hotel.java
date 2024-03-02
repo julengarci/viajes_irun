@@ -7,9 +7,22 @@ public class Hotel {
 	private String gerente;
 	private int estrella;
 	private String compania;
+	private Habitacion habitacion;
 	
+	public Habitacion getHabitacion() {
+		return habitacion;
+	}
+	public void setHabitacion(Habitacion habitacion) {
+		this.habitacion = habitacion;
+	}
 	public int getId() {
 		return id;
+	}
+	public int getEstrella() {
+		return estrella;
+	}
+	public void setEstrella(int estrella) {
+		this.estrella = estrella;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -47,7 +60,7 @@ public class Hotel {
 	@Override
 	public String toString() {
 		return "Hotel [id=" + id + ", cif=" + cif + ", nombre=" + nombre + ", gerente=" + gerente + ", entrella="
-				+ estrella + ", compania=" + compania;
+				+ estrella + ", compania=" + compania + ", Habitaciones=" + habitacion.toString();
 	}
 	
 }

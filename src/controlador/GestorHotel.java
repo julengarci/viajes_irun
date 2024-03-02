@@ -17,26 +17,39 @@ public class GestorHotel {
 			case Menu.VER_CLIENTES:
 				verClientes(scan);
 				break;
-			case Menu.MODIFICAR_CLIENTE:
-				modificarClientes(scan);
-				break;
 			case Menu.DAR_DE_ALTA:
 				darAltaCliente(scan);
+				break;
+			case Menu.VER_HOTEL_HABITACIONES:
+				verHotelHabitaciones(scan);
 				break;
 			case Menu.BORRAR_CLIENTE:
 				borrarCliente(scan);
 				break;
-			case Menu.VER_RESERVAS:
-				verReservas(scan);
-				break;
 			case Menu.DAR_DE_ALTA_RESERVA:
 				darAltaReserva(scan);
+				break;
+			case Menu.EDITAR_HABITACION:
+				editarHabitacion(scan);
+				break;
+			case Menu.VER_RESERVAS:
+				verReservas(scan);
 				break;
 			default:
 				break;
 			}
 		} while (opcion!=Menu.SALIR);
     }
+
+	private static void editarHabitacion(Scanner scan) {
+		GestorBBDD.editarHabitacion(scan);
+		
+	}
+
+	private static void verHotelHabitaciones(Scanner scan) {
+		GestorBBDD.verHotelHabitaciones(scan);
+		
+	}
 
 	private static void darAltaReserva(Scanner scan) {
 		GestorBBDD.darAltaReserva(scan);
@@ -55,9 +68,9 @@ public class GestorHotel {
 		
 	}
 
-	private static void modificarClientes(Scanner scan) {
-		GestorBBDD.modificarCliente(scan);
-	}
+//	private static void modificarClientes(Scanner scan) {
+//		GestorBBDD.modificarCliente(scan);
+//	}
 
 	private static void verClientes(Scanner scan) {
 		GestorBBDD.verClientes();

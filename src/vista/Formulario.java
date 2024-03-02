@@ -1,11 +1,16 @@
 package vista;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import modelo.Cliente;
 import modelo.GestorBBDD;
+import modelo.Habitacion;
 
 public class Formulario {
 
@@ -43,22 +48,42 @@ public class Formulario {
 	}
 
 	public static int pedirIdHabitacion(Scanner scan) {
-		System.out.println("Introduzca el Id de la Hbaitacion");
+		System.out.println("Introduzca el Id de la Habitacion");
 		int id =  Integer.parseInt(scan.nextLine());
 		return id;
 	}
 
 	public static Date pedirFechaDesde(Scanner scan) {
-		System.out.println("Introduzca la fecha de entrada de la Reserva");
+		System.out.println("Introduzca la fecha de entrada de la Reserva con el formato" + "\t año-mes-dia");
 		Date fecha = Date.valueOf(scan.nextLine());
 		return fecha;
 	}
 
 	public static Date pedirFechaHasta(Scanner scan) {
-		System.out.println("Introduzca la fecha de salida de la Reserva");
+		System.out.println("Introduzca la fecha de salida de la Reserva con el formato"  + "\t año-mes-dia");
 		Date fecha = Date.valueOf(scan.nextLine());
 		return fecha;
 	}
 
+	public static String pedirNombreHotel(Scanner scan) {
+		System.out.println("Introduzca el nombre del Hotel");
+		String nHotel = scan.nextLine();
+		return nHotel;
+	}
 
+	public static int pedirIdHotel(Scanner scan) {
+		System.out.println("Introduzca el id del Hotel");
+		int id_hotel = Integer.parseInt(scan.nextLine());
+		return id_hotel;
+	}
+
+	public static Habitacion modificarHabitacion(Scanner scan, Habitacion habitacion) {
+		System.out.println("Introduzca Los nuevos valores para la descripcion");
+		habitacion.setDescripcion(scan.nextLine());
+		System.out.println("Introduzca Los nuevos valores para el numero de habitacion");
+		habitacion.setNumero(Integer.parseInt(scan.nextLine()));
+		System.out.println("Introduzca Los nuevos valores para el precio");
+		habitacion.setPrecio(Integer.parseInt(scan.nextLine()));
+		return habitacion;
+	}
 }

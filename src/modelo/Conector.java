@@ -26,7 +26,7 @@ public class Conector {
 		    try {
 		        if (con != null && !con.isClosed()) {
 		            con.close();
-		            System.out.println("Conexión cerrada");
+//		            System.out.println("Conexión cerrada");
 		        }
 		    } catch (SQLException e) {
 		        System.out.println("Error al cerrar la conexión: " + e.getMessage());
