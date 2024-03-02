@@ -155,12 +155,16 @@ public class GestorBBDD {
 	            Reserva reserva = new Reserva();
 	            reserva.setId(rst.getInt("id"));
 	            reserva.setHabitacion(getHabitacionID(rst.getInt("id_habitacion")));
-	            reserva.setDesde(rst.getDate("desde"));//aqui
+	            reserva.setDesde(rst.getDate("desde"));
 	            reserva.setHasta(rst.getDate("hasta"));
 	            reserva.setCliente(getClienteByDni(rst.getString("dni")));
 	            reservas.add(reserva);
 	        }
-	        Visor.mostrarReservas(reservas);
+	        for (Reserva reserva : reservas) {
+				if(reserva.getHabitacion().getHotel().getId() == id_hotel) {
+					Visor.mostrarReservas(reserva);
+				}
+			}
 	        Conector.CERRAR();
 		} catch (SQLException e) {
 			System.out.println(e);

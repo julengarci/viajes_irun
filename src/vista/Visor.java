@@ -21,10 +21,8 @@ public class Visor {
 		System.out.println(cliente);
 	}
 
-	public static void mostrarReservas(ArrayList<Reserva> reservas) {
-		for (Reserva reserva : reservas) {
-			System.out.println(reserva);
-		}
+	public static void mostrarReservas(Reserva reserva) {
+		System.out.println(reserva);
 	}
 
 	public static void mostrarHoteles(ArrayList<Hotel> hoteles) {
