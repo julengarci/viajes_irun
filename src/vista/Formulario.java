@@ -11,6 +11,7 @@ import java.util.Scanner;
 import modelo.Cliente;
 import modelo.GestorBBDD;
 import modelo.Habitacion;
+import modelo.Hotel;
 
 public class Formulario {
 
@@ -85,5 +86,54 @@ public class Formulario {
 		System.out.println("Introduzca Los nuevos valores para el precio");
 		habitacion.setPrecio(Integer.parseInt(scan.nextLine()));
 		return habitacion;
+	}
+
+	public static int pedirIdReserva(Scanner scan) {
+		System.out.println("Introduzca el Id de la Reserva");
+		int id = Integer.parseInt(scan.nextLine());
+		return id;
+	}
+
+	public static Hotel pedirNuevosDatorHotel(Scanner scan, Hotel hotel) {
+		System.out.println("Introduzca el Cif del Hotel");
+		hotel.setCif(scan.nextLine());
+		System.out.println("Introduzca la compañia del Hotel");
+		hotel.setCompania(scan.nextLine());
+		System.out.println("Introduzca la cantidad de estrellas del Hotel");
+		hotel.setEstrella(Integer.parseInt(scan.nextLine()));
+		System.out.println("Introduzca el nombre del gerente del Hotel");
+		hotel.setGerente(scan.nextLine());
+		System.out.println("Introduzca el nombre del Hotel");
+		hotel.setNombre(scan.nextLine());
+		return hotel;
+	}
+
+	public static int pedirOpciones(Scanner scan) {
+		int opcines = Integer.parseInt(scan.nextLine());
+		return opcines;
+	}
+
+	public static Habitacion pedirNuevosDatosHabitacion(Scanner scan, Habitacion habitacion) {
+		System.out.println("Introduzca Los  valores para la descripcion");
+		habitacion.setDescripcion(scan.nextLine());
+		System.out.println("Introduzca Los valores para el numero de habitacion");
+		habitacion.setNumero(Integer.parseInt(scan.nextLine()));
+		System.out.println("Introduzca Los valores para el precio");
+		habitacion.setPrecio(Integer.parseInt(scan.nextLine()));
+		return habitacion;
+	}
+
+	public static String pedirStringTeclado() {
+		System.out.println("Introduzal cadena de texto a buscar: ");
+		Scanner scan = new Scanner(System.in);
+		String texto = scan.nextLine();
+		return texto;
+	}
+
+	public static String pedirDniCliente() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Introduzca el dni del cliente");
+		String dni;
+		return dni=scan.nextLine();
 	}
 }

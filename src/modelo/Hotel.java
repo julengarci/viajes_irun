@@ -45,12 +45,6 @@ public class Hotel {
 	public void setGerente(String gerente) {
 		this.gerente = gerente;
 	}
-	public int getEntrella() {
-		return estrella;
-	}
-	public void setEntrella(int entrella) {
-		this.estrella = entrella;
-	}
 	public String getCompania() {
 		return compania;
 	}

@@ -21,7 +21,7 @@ public class Visor {
 		System.out.println(cliente);
 	}
 
-	public static void mostrarReservas(Reserva reserva) {
+	public static void mostrarReserva(Reserva reserva) {
 		System.out.println(reserva);
 	}
 
@@ -33,7 +33,7 @@ public class Visor {
 
 	public static void mostrarError() {
 		System.out.println("Error Usuario No resgitrado");
-		
+
 	}
 
 	public static void mostrarResrvaAceptada(Reserva reserva) {
@@ -46,7 +46,31 @@ public class Visor {
 
 	public static void mostrHabitacion(Habitacion habitacion) {
 		System.out.println(habitacion);
-		
+
 	}
 
+	public static void mostrarStatementExitoso() {
+		System.out.println("Reserva Eliminada Correctamente");
+
+	}
+
+	public static void mostrarOopcionesHotel() {
+		System.out.println("0. Salir");
+		System.out.println("1. Crear Habitacion");
+
+	}
+
+	public static void mostrarClientesqueContengan(ArrayList<Cliente> clientes, String cadenaIntroducida) {
+		for (Cliente cliente : clientes) {
+			if(cliente.getNombre().toLowerCase().contains(cadenaIntroducida) || cliente.getApellido().toLowerCase().contains(cadenaIntroducida)) {
+				System.out.println(cliente);
+			}
+		}
+	}
+
+	public static void mostrarResrvas(ArrayList<Reserva> reservas) {
+		for (Reserva reserva : reservas) {
+			System.out.println(reserva);
+		}
+	}
 }
