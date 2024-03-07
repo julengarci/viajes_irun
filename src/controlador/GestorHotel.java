@@ -3,9 +3,13 @@ package controlador;
 import java.util.Scanner;
 
 import modelo.ClienteModelo;
-import modelo.GestorBBDD;
+import modelo.HabitacionModelo;
+import modelo.Hotel;
+import modelo.HotelModelo;
+import modelo.ReservaModelo;
 import vista.Formulario;
 import vista.Menu;
+import vista.Visor;
 
 public class GestorHotel {
 	public static void main(String[] args) {
@@ -53,49 +57,70 @@ public class GestorHotel {
 	}
 
 	private static void darAltaHotel(Scanner scan) {
-		GestorBBDD.darAltaHotel(scan);
+		Hotel hotel = new Hotel();
+		hotel = Formulario.pedirNuevosDatorHotel(scan,hotel);
+		HotelModelo hotelModelo = new HotelModelo();
+		hotelModelo.darAltaHotel(hotel);
+		
+		HabitacionModelo habitacionModelo = new HabitacionModelo();
+		
+		int opciones = 0;
+		do {
+			Visor.mostrarOopcionesHotel();
+			opciones = Formulario.pedirOpciones(scan);
+			switch (opciones) {
+			case 1:
+				habitacionModelo.darAltaHabitacion(hotel,scan);
+				break;
+			default:
+				break;
+			}
+		} while (opciones!=Menu.SALIR);
 
 	}
 
 	private static void anularHabitacion(Scanner scan) {
-		GestorBBDD.borrarHabitacion(scan);
+		HabitacionModelo.borrarHabitacion(scan);
 
 	}
 
 	private static void anularReserva(Scanner scan) {
-		GestorBBDD.anularReserva(scan);
-
+		ReservaModelo reservaModelo = new ReservaModelo();
+		reservaModelo.anularReserva(scan);
 	}
 
 	private static void editarHabitacion(Scanner scan) {
-		GestorBBDD.editarHabitacion(scan);
+		HabitacionModelo habitacionModelo = new HabitacionModelo();
+		habitacionModelo.editarHabitacion(scan);
 
 	}
 
 	private static void verHotelHabitaciones(Scanner scan) {
-		GestorBBDD.verHotelHabitaciones(scan);
+		HotelModelo.verHotelHabitaciones(scan);
 
 	}
 
 	private static void darAltaReserva(Scanner scan) {
-		GestorBBDD.darAltaReserva(scan);
+		ReservaModelo reservaModelo = new ReservaModelo();
+		reservaModelo.darAltaReserva(scan);
 	}
 
 	private static void verReservas(Scanner scan) {
 		Menu menu = new Menu();
+		ReservaModelo reservaModelo = new ReservaModelo();
 		int opcion = 0;
 		do {
 			menu.mostrarMenuReservas();
 			opcion = Formulario.pedirOpciones(scan);
 			switch (opcion) {
 			case Menu.CONSULTA_RESERVAS_EN_DOS_FECHAS:
-				GestorBBDD.verReservasEndosFechas();
+				reservaModelo.verReservasEndosFechas();
 				break;
 			case Menu.CONSULTAR_RESERVAS_DE_UN_CLIENTE:
-				GestorBBDD.verReservasCliente();
+				reservaModelo.verReservasCliente();
 				break;
 			case Menu.CONSULTAR_RESERVA_POR_HOTEL:
-				GestorBBDD.verReservas(scan);
+				reservaModelo.verReservas(scan);
 				break;
 			default:
 				break;
@@ -104,11 +129,13 @@ public class GestorHotel {
 	}
 
 	private static void borrarCliente(Scanner scan) {
-		GestorBBDD.borraCliente(scan);
+		ClienteModelo clienteModelo = new ClienteModelo();
+		clienteModelo.borraCliente(scan);
 	}
 
 	private static void darAltaCliente(Scanner scan) {
-		GestorBBDD.darAtltaCliente(scan);
+		ClienteModelo clienteModelo = new ClienteModelo();
+		clienteModelo.darAtltaCliente(scan);
 
 	}
 
@@ -118,19 +145,20 @@ public class GestorHotel {
 
 	private static void verClientes(Scanner scan) {
 		Menu menu = new Menu();
+		ClienteModelo clienteModelo = new ClienteModelo();
 		int opcion = 0;
 		do {
 			menu.mostrarMenuClientes();
 			opcion = Formulario.pedirOpciones(scan);
 			switch (opcion) {
 			case Menu.VER_CLIENTES_ORDENADOS_POR_APELLIDO:
-				GestorBBDD.verClientesOrdenadosA();
+				clienteModelo.verClientesOrdenadosA();
 				break;
 			case Menu.VER_CLIENTES_ORDENADOS_POR_NOMBRE:
-				GestorBBDD.verCleintesOrdenadosN();
+				clienteModelo.verCleintesOrdenadosN();
 				break;
 			case Menu.VER_CLIENTES_QUE_CONTENGAN_CADENA:
-				ClienteModelo.verClientes();
+				clienteModelo.verClientes();
 				break;
 			default:
 				break;

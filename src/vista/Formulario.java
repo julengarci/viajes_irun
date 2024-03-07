@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import modelo.Cliente;
-import modelo.GestorBBDD;
+import modelo.ClienteModelo;
 import modelo.Habitacion;
 import modelo.Hotel;
 
@@ -21,7 +21,7 @@ public class Formulario {
 			if (cliente.getDni().equals(dni)) {
 				Visor.mostrarCliente(cliente);
 				cliente =  modificarCliente(cliente,scan);
-				GestorBBDD.updateCliente(cliente);
+				ClienteModelo.updateCliente(cliente);
 			}
 		}
 	}

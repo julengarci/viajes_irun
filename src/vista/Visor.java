@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import modelo.Cliente;
-import modelo.GestorBBDD;
 import modelo.Habitacion;
+import modelo.HabitacionModelo;
 import modelo.Hotel;
+import modelo.HotelModelo;
 import modelo.Reserva;
 
 public class Visor {
@@ -41,11 +42,14 @@ public class Visor {
 	}
 
 	public static Hotel mostarHabitacionHotel(Scanner scan, Hotel hotel) {
-		return GestorBBDD.verHabitacionesDeunHotel(scan,hotel);
+		HotelModelo hotelModelo = new HotelModelo();
+		return hotelModelo.verHabitacionesDeunHotel(scan,hotel);
 	}
 
-	public static void mostrHabitacion(Habitacion habitacion) {
-		System.out.println(habitacion);
+	public static void mostrHabitacion(ArrayList<Habitacion> habitaciones) {
+		for (Habitacion habitacion : habitaciones) {
+			System.out.println(habitacion);
+		}
 
 	}
 
