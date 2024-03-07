@@ -2,6 +2,7 @@ package controlador;
 
 import java.util.Scanner;
 
+import modelo.ClienteModelo;
 import modelo.GestorBBDD;
 import vista.Formulario;
 import vista.Menu;
@@ -129,7 +130,7 @@ public class GestorHotel {
 				GestorBBDD.verCleintesOrdenadosN();
 				break;
 			case Menu.VER_CLIENTES_QUE_CONTENGAN_CADENA:
-				GestorBBDD.verClientes();
+				ClienteModelo.verClientes();
 				break;
 			default:
 				break;

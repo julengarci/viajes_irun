@@ -18,30 +18,6 @@ import vista.Visor;
 public class GestorBBDD {
 
 
-	public static void verClientes(){
-		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		try {
-			String sql = "SELECT * FROM clientes";
-			Connection conexion = Conector.conectar();
-			Statement st = conexion.createStatement();
-			ResultSet rst = st.executeQuery(sql);
-			while(rst.next()) {
-				Cliente cliente = new Cliente();
-				cliente.setDni(rst.getString("dni"));
-				cliente.setApellido(rst.getString("apellidos"));
-				cliente.setDireccion(rst.getString("direccion"));
-				cliente.setLocalidad(rst.getString("localidad"));
-				cliente.setNombre(rst.getString("nombre"));
-				clientes.add(cliente);
-			}
-			String cadenaIntroducida = Formulario.pedirStringTeclado();
-			Visor.mostrarClientesqueContengan(clientes,cadenaIntroducida);
-			Conector.CERRAR();
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-	}
-
 	public static void modificarCliente(Scanner scan) {
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 		try {
