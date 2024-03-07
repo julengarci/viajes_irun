@@ -328,7 +328,7 @@ public class GestorBBDD {
 			while(rst.next()) {
 				hotel.setHabitacion(getHabitacionID(rst.getInt("id")));
 			}
-			Visor.mostrHabitacion(hotel.getHabitacion());
+			Visor.mostrHabitacion(hotel.getHabitaciones());
 			return hotel;
 		} catch (Exception e) {
 			System.err.println(e);
@@ -398,14 +398,14 @@ public class GestorBBDD {
 	}
 
 	private static void darAltaHabitacion(Hotel hotel, Scanner scan) {
-		hotel.setHabitacion(Formulario.pedirNuevosDatosHabitacion(scan,hotel.getHabitacion()));
+		hotel.setHabitacion(Formulario.pedirNuevosDatosHabitacion(scan,hotel.getHabitaciones()));
 		try {
 			String sql = "INSERT INTO habitaciones(id_hotel,numero,descripcion,precio) VALUES (?,?,?,?)";
 			PreparedStatement prst = Conector.conectar().prepareStatement(sql);
 			prst.setInt(1, hotel.getId());
-			prst.setInt(2, hotel.getHabitacion().getNumero());
-			prst.setString(3,  hotel.getHabitacion().getDescripcion());
-			prst.setInt(4,  hotel.getHabitacion().getPrecio());
+			prst.setInt(2, hotel.getHabitaciones().getNumero());
+			prst.setString(3,  hotel.getHabitaciones().getDescripcion());
+			prst.setInt(4,  hotel.getHabitaciones().getPrecio());
 		} catch (Exception e) {
 			System.err.println(e);
 		}
@@ -489,9 +489,12 @@ public class GestorBBDD {
 	}
 
 	public static void verReservasCliente() {
+		
 		String dni_Cliente = Formulario.pedirDniCliente();
 		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+		
 		try {
+			
 			String sql = "SELECT * FROM reservas WHERE reservas.dni = ?";
 			PreparedStatement prst = Conector.conectar().prepareStatement(sql);
 			prst.setString(1, dni_Cliente);

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conector {
-	private final static String BBDD = "viajesirun";
+	private final static String BBDD = "hotel";
 	private final static String Usuario = "root";
 	private final static String contraseña = "";
 	private final static String HOST = "localhost";
